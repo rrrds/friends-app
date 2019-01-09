@@ -265,6 +265,5 @@ class FriendApp {
   }
 }
 
-// const app = new FriendApp('https://randomuser.me/api/?results=50');
-const app = new FriendApp('http://httpstat.us/500');
+const app = new FriendApp('https://randomuser.me/api/?results=50');
 app.init();
