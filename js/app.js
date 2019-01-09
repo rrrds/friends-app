@@ -11,7 +11,7 @@ class Component {
   setValue(state = {}) {
     if (!this.props.valueName) return;
 
-    if (!Object.prototype.hasOwnProperty.call(state, this.props.valueName)) return;
+    if (!state.hasOwnProperty(this.props.valueName)) return;
 
     const newValue = state[this.props.valueName];
 
