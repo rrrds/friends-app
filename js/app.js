@@ -95,7 +95,7 @@ class FriendApp {
   }
 
   filterByName(data, filter) {
-    return data.filter(item => item.name.first.startsWith(filter));
+    return data.filter(item => item.name.first.indexOf(filter) >= 0);
   }
 
   filterFromAge(data, age) {
