@@ -207,8 +207,10 @@ class FriendApp {
 
   fetchData(apiUrl) {
     return fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => data.results)
+      .then(response => {
+        if (!response.ok) return [];
+        return response.json();
+      })
       .catch(() => []);
   }
 
@@ -253,13 +255,16 @@ class FriendApp {
       })
     );
 
-    this.fetchData(this.config.apiUrl).then(data => {
-      this.usersData = data;
+    this.fetchData(this.config.apiUrl)
+      .then(data => data.results || [])
+      .then(data => {
+        this.usersData = data;
 
-      this.render();
-    });
+        this.render();
+      });
   }
 }
 
-const app = new FriendApp('https://randomuser.me/api/?results=50');
+// const app = new FriendApp('https://randomuser.me/api/?results=50');
+const app = new FriendApp('http://httpstat.us/500');
 app.init();
