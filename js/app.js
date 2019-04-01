@@ -43,7 +43,7 @@ class NumberControl extends Component {
   }
 
   eventHandler(event) {
-    const value = event.target.value || event.data || null;
+    const value = event.target.value || null;
     this.props.setState({ [this.props.valueName]: value });
   }
 }
