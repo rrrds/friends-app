@@ -166,7 +166,7 @@ class FriendApp {
     return data;
   }
 
-  renderUsers(data) {
+  renderUsers(data = []) {
     this.container.innerHTML = '';
     const userTemplates = [];
 
@@ -190,7 +190,7 @@ class FriendApp {
     });
 
     this.container.innerHTML = userTemplates.join('');
-    this.totalCounter.innerHTML = `Total: ${data.length || 0}`;
+    this.totalCounter.innerHTML = `Total: ${data.length}`;
   }
 
   render() {
